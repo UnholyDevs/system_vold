@@ -77,6 +77,10 @@ common_static_libraries := \
 vold_conlyflags := -std=c11
 vold_cflags := -Werror -Wall -Wno-missing-field-initializers -Wno-unused-variable -Wno-unused-parameter
 
+ifeq ($(TARGET_KERNEL_HAVE_EXFAT),true)
+vold_cflags += -DCONFIG_KERNEL_HAVE_EXFAT
+endif
+
 include $(CLEAR_VARS)
 
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
