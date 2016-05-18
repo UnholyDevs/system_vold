@@ -68,6 +68,9 @@ common_static_libraries := \
 	libscrypt_static \
 	libmincrypt \
 	libbatteryservice \
+	libext2_blkid \
+	libext2_uuid_static
+
 
 vold_conlyflags := -std=c11
 vold_cflags := -Werror -Wall -Wno-missing-field-initializers -Wno-unused-variable -Wno-unused-parameter
