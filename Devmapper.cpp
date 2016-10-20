@@ -196,8 +196,6 @@ int Devmapper::create(const char *name, const char *loopFile, const char *key,
     char *geoParams = buffer + sizeof(struct dm_ioctl);
     // bps=512 spc=8 res=32 nft=2 sec=8190 mid=0xf0 spt=63 hds=64 hid=0 bspf=8 rdcl=2 infs=1 bkbs=2
     strcpy(geoParams, "0 64 63 0");
-    geoParams += strlen(geoParams) + 1;
-    geoParams = (char *) _align(geoParams, 8);
     if (ioctl(fd, DM_DEV_SET_GEOMETRY, io)) {
         SLOGE("Error setting device geometry (%s)", strerror(errno));
         free(buffer);
